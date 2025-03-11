@@ -59,25 +59,27 @@ type TemplateMessageLanguage struct {
 }
 
 type TemplateMessageComponent struct {
-	Type       string `json:"type"`
-	Parameters []struct {
-		Type  string `json:"type"`
-		Image struct {
-			Link string `json:"link"`
-		} `json:"image,omitempty"`
-		Text     string `json:"text,omitempty"`
-		Currency struct {
-			FallbackValue string      `json:"fallback_value"`
-			Code          string      `json:"code"`
-			Amount1000    interface{} `json:"amount_1000"`
-		} `json:"currency,omitempty"`
-		DateTime struct {
-			FallbackValue string `json:"fallback_value"`
-		} `json:"date_time,omitempty"`
-		Payload string `json:"payload,omitempty"`
-	} `json:"parameters"`
-	SubType string `json:"sub_type,omitempty"`
-	Index   string `json:"index,omitempty"`
+	Type       string                              `json:"type"`
+	Parameters []TemplateMessageComponentParameter `json:"parameters"`
+	SubType    string                              `json:"sub_type,omitempty"`
+	Index      string                              `json:"index,omitempty"`
+}
+
+type TemplateMessageComponentParameter struct {
+	Type  string `json:"type"`
+	Image *struct {
+		Link string `json:"link"`
+	} `json:"image,omitempty"`
+	Text     *string `json:"text,omitempty"`
+	Currency *struct {
+		FallbackValue string      `json:"fallback_value"`
+		Code          string      `json:"code"`
+		Amount1000    interface{} `json:"amount_1000"`
+	} `json:"currency,omitempty"`
+	DateTime *struct {
+		FallbackValue string `json:"fallback_value"`
+	} `json:"date_time,omitempty"`
+	Payload *string `json:"payload,omitempty"`
 }
 
 type SendMessageResponse struct {
