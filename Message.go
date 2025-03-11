@@ -70,7 +70,7 @@ type TemplateMessageComponentParameter struct {
 	Image *struct {
 		Link string `json:"link"`
 	} `json:"image,omitempty"`
-	Text     *string `json:"text,omitempty"`
+	Text     string `json:"text,omitempty"`
 	Currency *struct {
 		FallbackValue string      `json:"fallback_value"`
 		Code          string      `json:"code"`
